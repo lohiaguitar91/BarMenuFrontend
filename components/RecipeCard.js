@@ -1,16 +1,8 @@
 import { useRouter } from 'next/router'; // Using instead of Link because problems that probably don't exist, could change back later...
+import Link from 'next/link'
 
 const RecipeCard = ({ recipe, onViewClick }) => {
-  console.log("THIS IS THE RECIPE" + recipe)
   const router = useRouter();
-
-  const handleViewClick = () => {
-    router.push(`/recipes/${recipe.id}`);
-    if (onViewClick) {
-      onViewClick();
-    }
-  };
-
   return (
     <div className="card recipe-card">
       <div className="card-body">
@@ -19,9 +11,15 @@ const RecipeCard = ({ recipe, onViewClick }) => {
           <strong>Ingredients:</strong> {recipe.ingredients}
         </p>
         <div className="action-buttons">
-          <button onClick={handleViewClick} className="btn btn-sm btn-success">
-            View
-          </button>
+        <button className="btn btn-sm btn-success">
+          <Link
+          href={{ 
+            pathname: '/recipes/[id]',
+            query: {id: recipe.id},
+          }} 
+        >View
+        </Link>
+        </button>
         </div>
       </div>
       <style jsx>{`
