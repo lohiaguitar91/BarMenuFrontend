@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useRouter } from 'next/router'; // Using instead of Link because problems that probably don't exist, could change back later...
 import Link from 'next/link'
 
@@ -16,7 +15,7 @@ const RecipeCard = ({ recipe, onViewClick }) => {
           <Link
           href={{ 
             pathname: '/recipes/[id]',
-            query: { id: recipe.id },
+            query: {id: recipe.id},
           }} 
         >View
         </Link>
