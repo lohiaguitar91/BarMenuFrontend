@@ -17,12 +17,12 @@ export default function Home() {
         }}
       >
         <div className="text-box">
-          <h1 style={{ fontFamily: "cursive", fontSize: "5rem" }}>La Recipes </h1>
+          <h1 style={{ fontFamily: "cursive", fontSize: "5rem" }}>Home Bar Drink Recipes </h1>
           <p className="mt-3" style={{ fontSize: "2rem", fontWeight: "lighter" }}>
-            Recipes for the meals we love
+            Thirsty? See what selections are available from our home bar!
           </p>
           <Link href="/recipes" className="btn btn-outline btn-large btn-info">
-            View Recipes<span className="ml-2">&rarr;</span>
+            Check out what we can make for you!<span className="ml-2">&rarr;</span>
           </Link>
         </div>
       </header>

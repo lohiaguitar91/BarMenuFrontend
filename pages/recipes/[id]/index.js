@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import RecipeCard from "../../../components/RecipeCard";
+import IndividualRecipeCard from "../../../components/IndividualRecipeCard";
 import axios from "axios";
 
 export default function Recipe({ recipe }) {
@@ -7,9 +7,8 @@ export default function Recipe({ recipe }) {
 
   return (
     <div>
-      <h1>Recipe</h1>
-      <div className="recipe-card">
-          <RecipeCard
+      <div className="individual-recipe-card">
+          <IndividualRecipeCard
             key={recipe.id}
             recipe={recipe}
           />
@@ -27,6 +26,8 @@ export async function getServerSideProps(id) {
       id: data["data"]["id"],
       name: data["data"]["name"],
       ingredients: data["data"]["ingredients"],
+      picture: data["data"]["picture"],
+      steps: data["data"]["steps"],
     }
     return { props: { recipe }};
   } catch (e) {

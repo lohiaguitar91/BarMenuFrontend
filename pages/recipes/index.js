@@ -4,8 +4,6 @@ import axios from "axios";
 
 export default function RecipesList({ recipes }) {
   const router = useRouter();
-  console.log("DEBUG DEBUG DEBUG - Router called in pages/recipes/index");
-  console.log("DEBUG DEBUG DEBUG - here are the recipes: " + recipes);
 
   return (
     <div>
@@ -15,10 +13,12 @@ export default function RecipesList({ recipes }) {
           <RecipeCard
             key={recipe.id}
             recipe={recipe}
-            //name={recipe.name} -> this screwed things up
-            //ingredients={recipe.ingredients} -> this screwed things up
           />
         ))}
+      </div>
+      <p></p>
+      <div className="custom-order-container">
+        <button>Place Custom Order</button>
       </div>
     </div>
   );
@@ -32,6 +32,7 @@ export async function getServerSideProps(context) {
       id: recipe.id,
       name: recipe.name,
       ingredients: recipe.ingredients,
+      picture: recipe.picture,
     }));
     console.log(recipes);
     return { props: { recipes }};
